@@ -9,7 +9,7 @@ public Refuge(String fieldname, int fieldnumber, int bonus){
 	this.bonus=bonus;
 }	
 
-public void landOnField(Player p){
+public void landOnField(Player lander){
 	
 }
 }

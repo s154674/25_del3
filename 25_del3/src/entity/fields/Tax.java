@@ -10,7 +10,7 @@ public Tax(String fieldname, int fieldnumber, int taxAmount){
 	this.taxAmount=taxAmount;
 }	
 
-public void landOnField(Player p){
+public void landOnField(Player lander){
 	
 }
 }

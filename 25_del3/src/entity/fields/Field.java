@@ -9,7 +9,5 @@ public Field (String fieldname, int fieldnumber){
 	this.fieldname=fieldname;
 	this.fieldnumber=fieldnumber;
 }
-public void landOnField(Player p){
-	
-}
+public abstract void landOnField(Player lander);
 }

@@ -9,7 +9,7 @@ public Territory(String fieldname, int fieldnumber, int price,int rent){
 	this.rent=rent;
 }	
 
-public void landOnField(Player p){
-	
+public int getRent(){
+	return rent;
 }
 }

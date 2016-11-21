@@ -9,7 +9,10 @@ public LaborCamp(String fieldname, int fieldnumber, int price,int baserent){
 	this.baserent=baserent;
 }	
 
-public void landOnField(Player p){
-	
+
+public int getRent(){
+	int facevalue =12;
+	return baserent*facevalue;
+	//LaborCamp tager facevalue af summen af dice for at finde rent.
 }
 }
