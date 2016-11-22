@@ -22,14 +22,18 @@ public abstract class Ownable extends Field {
 				owner = lander;
 				lander.getAccount().withdraw(price);
 			}
-		} else {
-			System.out.println("Du har ikke penge nok til at købe feltet.");
-		}
+		} else if (owner == null && lander.getBalance() < price) {
+			System.out.println("Du har ikke råd");
 
-		if (owner != null) {
+		} else if (owner != null) {
+			int rent = getRent();
+			lander.getAccount().withdraw(rent);
+			owner.getAccount().deposit(rent);
+			// GUI besked der viser mængden af penge der er blevet flyttet
 			System.out.println("Du har landet på " + owner + "'s felt, og betaler ham" + getRent());
 		}
 	}
 
 	public abstract int getRent();
+
 }

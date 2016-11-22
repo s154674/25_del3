@@ -2,7 +2,6 @@ package entity.fields;
 
 import entity.Cup;
 import entity.Dice;
-import entity.Player;
 
 public class LaborCamp extends Ownable {
 	private int baserent;
@@ -19,13 +18,6 @@ public class LaborCamp extends Ownable {
 		int facevalue = labourCup.getSum();
 		return baserent * facevalue;
 		// LaborCamp tager facevalue af summen af dice for at finde rent.
-	}
-
-	private void transferAmount(int amount, Player lander) {
-		int amountWithdraw = lander.getAccount().withdraw(getRent());
-		owner.getAccount().deposit(amountWithdraw);
-		// GUI besked der viser mængden af penge der er blevet flyttet
-
 	}
 
 }
