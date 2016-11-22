@@ -22,7 +22,7 @@ public class Tax extends Field {
 	}
 
 	private void getTax(int amount, Player lander) {
-		lander.getAccount().withdraw(taxAmount);
+		lander.getAccount().withdraw(amount);
 	}
 
 }
