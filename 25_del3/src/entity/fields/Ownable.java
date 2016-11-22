@@ -13,7 +13,7 @@ public abstract class Ownable extends Field {
 
 	@Override
 	public void landOnField(Player lander) {
-		if (owner == null || lander.getBalance() > price) {
+		if (owner == null && lander.getBalance() > price) {
 			// GUI Med knapper og stuff skal implimenteres senere, måske GUI
 			// Statisk
 			System.out.println("Ønsker du at købe feltet, det koster" + price + "kroner");
@@ -23,7 +23,7 @@ public abstract class Ownable extends Field {
 				lander.getAccount().withdraw(price);
 			}
 		} else {
-			// GUI der siger spilleren ikke har nok penge til at købe feltet.
+			System.out.println("Du har ikke penge nok til at købe feltet.");
 		}
 
 		if (owner != null) {
