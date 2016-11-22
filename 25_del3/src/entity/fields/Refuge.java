@@ -1,15 +1,17 @@
 package entity.fields;
-import entity.*;
+
+import entity.Player;
 
 public class Refuge extends Field {
-private int bonus;
+	private int bonus;
 
-public Refuge(String fieldname, int fieldnumber, int bonus){
-	super(fieldname,fieldnumber);
-	this.bonus=bonus;
-}	
+	public Refuge(String fieldname, int fieldnumber, int bonus) {
+		super(fieldname, fieldnumber);
+		this.bonus = bonus;
+	}
 
-public void landOnField(Player lander){
-	
-}
+	@Override
+	public void landOnField(Player lander) {
+		lander.getAccount().deposit(bonus);
+	}
 }

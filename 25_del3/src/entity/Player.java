@@ -1,10 +1,13 @@
 package entity;
-import entity.fields.*;
-import java.util.*;
+
+import java.util.ArrayList;
+
+import entity.fields.Field;
 
 public class Player {
 	private String name;
 	private boolean won;
+	private boolean broke;
 	private Account account;
 	private ArrayList<Field> properties = new ArrayList<Field>();
 
@@ -12,6 +15,7 @@ public class Player {
 		this.name = name;
 		this.account = account;
 		this.won = false;
+		this.broke = false;
 	}
 
 	@Override
@@ -34,13 +38,21 @@ public class Player {
 	public boolean getWon() {
 		return won;
 	}
-	
-	public boolean addProperty(Field property){
+
+	public boolean getBroke() {
+		return broke;
+	}
+
+	public void setBroke(boolean broke) {
+		this.broke = broke;
+	}
+
+	public boolean addProperty(Field property) {
 		properties.add(property);
 		return true;
 	}
-	
-	public ArrayList<Field> getProperties(){
+
+	public ArrayList<Field> getProperties() {
 		return properties;
 	}
 }
