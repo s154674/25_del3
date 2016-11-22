@@ -14,11 +14,11 @@ public int getRent(){
 }
 
 private int fleetsOwned(){
-	ArrayList<Field> kappa = owner.getProperties();
+	ArrayList<Field> properties = owner.getProperties();
 	int i;
 	int Fleets=0;
-	for (i=0;i<=kappa.size();i++){
-		if (kappa.get(i) instanceof Fleet)
+	for (i=0;i<=properties.size();i++){
+		if (properties.get(i) instanceof Fleet)
 			Fleets++;
 	}
 	return Fleets;

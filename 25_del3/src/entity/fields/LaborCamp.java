@@ -1,4 +1,6 @@
 package entity.fields;
+import entity.*;
+import java.util.ArrayList;
 
 import entity.Cup;
 import entity.Dice;
@@ -15,9 +17,21 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public int getRent() {
+		labourCup.rollAll();
 		int facevalue = labourCup.getSum();
-		return baserent * facevalue;
+		int multi = campsOwned(owner);
+		return baserent * facevalue * multi;
 		// LaborCamp tager facevalue af summen af dice for at finde rent.
 	}
-
+	public int campsOwned(Player owner){
+		ArrayList<Field> properties = owner.getProperties();
+		int i;
+		int camps=0;
+		for (i=0;i<=properties.size();i++){
+			if (properties.get(i) instanceof Fleet)
+				camps++;
+		}
+		return camps;
+	}
+	
 }

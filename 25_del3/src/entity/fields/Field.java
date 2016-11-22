@@ -10,4 +10,12 @@ public Field (String fieldname, int fieldnumber){
 	this.fieldnumber=fieldnumber;
 }
 public abstract void landOnField(Player lander);
+
+public String getName(){
+	return fieldname;
+}
+
+public int getNumber(){
+	return fieldnumber;
+}
 }

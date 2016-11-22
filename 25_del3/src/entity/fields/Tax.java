@@ -22,7 +22,7 @@ public class Tax extends Field {
 			// properties.
 			// og en prompt så spilleren kan vælge imellem 4k og 10%.
 			int ans;
-			if (4000 == 4000) {
+			if (4000 == ans) {
 				lander.getAccount().withdraw(fee);
 			} else {
 				int percent = 10; // % af samlet værdi

@@ -21,12 +21,13 @@ public abstract class Ownable extends Field {
 				// Hvis han vil købe den sættes lander til owner.
 				owner = lander;
 				lander.getAccount().withdraw(price);
+				lander.getProperties().add(this);
 			}
 		} else if (owner == null && lander.getBalance() < price) {
 			System.out.println("Du har ikke råd");
 
 		} else if (owner != null) {
-			int rent = getRent();
+			int rent = this.getRent();
 			lander.getAccount().withdraw(rent);
 			owner.getAccount().deposit(rent);
 			// GUI besked der viser mængden af penge der er blevet flyttet
@@ -36,4 +37,7 @@ public abstract class Ownable extends Field {
 
 	public abstract int getRent();
 
+	public int getPrice(){
+		return price;
+	}
 }
