@@ -35,4 +35,7 @@ public class Tax extends Field {
 			}
 		}
 	}
+	public int getPrice(){
+		return -taxAmount;
+	}
 }

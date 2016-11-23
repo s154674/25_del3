@@ -16,4 +16,7 @@ public class Refuge extends Field {
 		lander.getAccount().deposit(bonus);
 		Output.landOnRefuge(lander.toString(), bonus);
 	}
+	public int getPrice(){
+		return bonus;
+	}
 }
