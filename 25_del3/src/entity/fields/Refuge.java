@@ -1,6 +1,7 @@
 package entity.fields;
 
 import entity.Player;
+import boundary.*;
 
 public class Refuge extends Field {
 	private int bonus;
@@ -13,5 +14,6 @@ public class Refuge extends Field {
 	@Override
 	public void landOnField(Player lander) {
 		lander.getAccount().deposit(bonus);
+		Output.landOnRefuge(lander.toString(), bonus);
 	}
 }
