@@ -1,15 +1,19 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
+import boundary.Input;
+import boundary.Output;
 import entity.fields.Field;
+import entity.fields.Ownable;
 
 public class Player {
 	private String name;
 	private boolean won;
 	private boolean broke;
 	private Account account;
-	private ArrayList<Field> properties = new ArrayList<Field>();
+	private ArrayList<Ownable> properties = new ArrayList<Ownable>();
 
 	public Player(String name, Account account) {
 		this.name = name;
@@ -47,12 +51,43 @@ public class Player {
 		this.broke = broke;
 	}
 
-	public boolean addProperty(Field property) {
-		properties.add(property);
-		return true;
+	public void pay(Player player, int amount){
+		if (getBalance()>=amount){
+			account.withdraw(amount);
+			player.getAccount().deposit(amount);
+			Output.payOwner(this.toString(),player.toString(), amount);
+		} else {
+			int left = account.getBalance();
+			player.getAccount().withdraw(left);
+			player.getAccount().deposit(left);
+			bankrupt();
+			Output.payOwnerAndBankrupt(this.toString(), player.toString(), amount);
+		}
+	}
+	public void buy(Ownable property){
+		if (Input.getBuyChoice(property.getPrice())) {
+			// Hvis han vil købe den sættes lander til owner.
+			property.setOwner(this);
+			getAccount().withdraw(property.getPrice());
+			addProperty(property);
+			Output.setOwner(property.getNumber(), this.toString());
+		} else{
+			Output.noBuy(this.toString());
+		}
+	}
+	private void bankrupt(){
+		broke = true;
+		for (Ownable property: properties) {
+			property.removeOwner();
+		}
+		properties = null;
 	}
 
-	public ArrayList<Field> getProperties() {
+	public void addProperty(Ownable property) {
+		properties.add(property);
+	}
+
+	public ArrayList<Ownable> getProperties() {
 		return properties;
 	}
 }

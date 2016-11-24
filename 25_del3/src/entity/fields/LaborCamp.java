@@ -9,8 +9,8 @@ public class LaborCamp extends Ownable {
 	private int baserent;
 	private Cup labourCup;
 
-	public LaborCamp(String fieldname, int fieldnumber, int price, int baserent) {
-		super(fieldname, fieldnumber, price);
+	public LaborCamp(String fieldName, int fieldNumber, int price, int baserent) {
+		super(fieldName, fieldNumber, price);
 		labourCup = new Cup(new Dice(), new Dice());
 		this.baserent = baserent;
 	}
@@ -24,11 +24,10 @@ public class LaborCamp extends Ownable {
 		// LaborCamp tager facevalue af summen af dice for at finde rent.
 	}
 	public int campsOwned(Player owner){
-		ArrayList<Field> properties = owner.getProperties();
-		int i;
+		ArrayList<Ownable> properties = owner.getProperties();
 		int camps=0;
-		for (i=0;i<=properties.size();i++){
-			if (properties.get(i) instanceof Fleet)
+		for (Ownable property: properties) {
+			if (property instanceof LaborCamp)
 				camps++;
 		}
 		return camps;

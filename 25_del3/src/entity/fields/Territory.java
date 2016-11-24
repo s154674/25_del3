@@ -3,8 +3,8 @@ package entity.fields;
 public class Territory extends Ownable {
 	private int rent;
 
-	public Territory(String fieldname, int fieldnumber, int price, int rent) {
-		super(fieldname, fieldnumber, price);
+	public Territory(String fieldName, int fieldNumber, int price, int rent) {
+		super(fieldName, fieldNumber, price);
 		this.rent = rent;
 	}
 

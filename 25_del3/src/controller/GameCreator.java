@@ -6,9 +6,9 @@ import entity.*;
 import entity.fields.*;
 import java.awt.*;
 
-public class Controller {
+public class GameCreator{
 
-    public static void createGameBoard(){
+    public static Field[] createGameBoard(){
         int i;
         Field[] fields = new Field[21];
 
@@ -26,7 +26,7 @@ public class Controller {
         fields[10] = new Territory("Castle", 11, 8000, 40000);
 
         //Refuge objekterne bliver oprettet
-        fields[11] = new Refuge("Walled City", 12, 5000);
+        fields[11] = new Refuge("Walled City",12, 5000);
         fields[12] = new Refuge("Monastery", 13, 500);
 
         //LaborCamp objekterne bliver oprettet
@@ -43,21 +43,21 @@ public class Controller {
         fields[19] = new Fleet("The Buccaneers", 20, 4000);
         fields[20] = new Fleet("Privatee Armade", 21, 4000);
 
+        FieldGenerator.createField(fields);
 
-        for (i=0;i<fields.length;i++){
-            FieldGenerator.createField(fields);
-        }
+        return fields;
     }
 
-    public static void createPlayers(){
+    public static Player[] createPlayers(){
         Color[] colors = {Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.RED, Color.YELLOW};
-        int i, amount = Input.getPlayers();
+        int amount = Input.getPlayers();
         String[] names = Input.getPlayerNames(amount);
         Player[] players = new Player[amount];
 
-        for (i=0;i<amount;i++){
+        for (int i=0;i<amount;i++){
             players[i]= new Player(names[i], new Account(30000));
             FieldGenerator.createPlayer(colors[i],players[i]);
         }
+        return players;
     }
 }

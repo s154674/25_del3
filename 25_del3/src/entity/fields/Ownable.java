@@ -1,37 +1,37 @@
 package entity.fields;
 import boundary.*;
+import desktop_resources.GUI;
 import entity.Player;
 
 public abstract class Ownable extends Field {
 	private int price;
 	protected Player owner;
 
-	public Ownable(String fieldname, int fieldnumber, int price) {
-		super(fieldname, fieldnumber);
+	public Ownable(String fieldName, int fieldNumber, int price) {
+		super(fieldName, fieldNumber);
 		this.price = price;
+	}
+
+	public void setOwner(Player buyer){
+		owner = buyer;
+	}
+	public void removeOwner(){
+		owner = null;
 	}
 
 	@Override
 	public void landOnField(Player lander) {
-		if (owner == null && lander.getBalance() > price) {
-			boolean ans;
-			ans=Input.getBuyChoice(price);
-			if (ans==true) {
-				// Hvis han vil købe den sættes lander til owner.
-				owner = lander;
-				lander.getAccount().withdraw(price);
-				lander.getProperties().add(this);
-			} else if (ans==false){
-				Output.noBuy();
+		if (owner == null){
+			if (lander.getBalance() > price){
+				lander.buy(this);
+			} else {
+				Output.notEnough(lander.toString());
 			}
-		} else if (owner == null && lander.getBalance() < price) {
-			Output.notEnough();
-
-		} else if (owner != null) {
+		} else if (owner == lander) {
+			Output.ownProperty(lander.toString());
+		} else {
 			int rent = this.getRent();
-			lander.getAccount().withdraw(rent);
-			owner.getAccount().deposit(rent);
-			Output.payOwner(owner.toString(), rent);
+			lander.pay(owner, rent);
 		}
 	}
 

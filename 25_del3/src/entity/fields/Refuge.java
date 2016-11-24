@@ -6,8 +6,8 @@ import boundary.*;
 public class Refuge extends Field {
 	private int bonus;
 
-	public Refuge(String fieldname, int fieldnumber, int bonus) {
-		super(fieldname, fieldnumber);
+	public Refuge(String fieldName, int fieldNumber, int bonus) {
+		super(fieldName, fieldNumber);
 		this.bonus = bonus;
 	}
 

@@ -1,22 +1,26 @@
 package entity.fields;
+
 import entity.*;
 
 public abstract class Field {
-private String fieldname;
-private int fieldnumber;
+    private String fieldName;
+    private int fieldNumber;
 
-public Field (String fieldname, int fieldnumber){
-	this.fieldname=fieldname;
-	this.fieldnumber=fieldnumber;
-}
-public abstract void landOnField(Player lander);
+    public Field(String fieldName, int fieldNumber) {
+        this.fieldName = fieldName;
+        this.fieldNumber = fieldNumber;
+    }
 
-public String getName(){
-	return fieldname;
-}
+    public abstract void landOnField(Player lander);
 
-public int getNumber(){
-	return fieldnumber;
-}
+    public String getName() {
+        return fieldName;
+    }
 
+    public int getNumber() {
+        return fieldNumber;
+    }
+
+
+    public abstract int getPrice();
 }
