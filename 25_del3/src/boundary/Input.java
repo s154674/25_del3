@@ -7,7 +7,7 @@ public static int getPlayers(){
 	int antalSpillere;
 	while (true){
 		try {
-			antalSpillere = GUI.getUserInteger("Antal Spillere: ");
+			antalSpillere = GUI.getUserInteger("Antal Spillere: ",2,6);
 			return antalSpillere;
 		} catch (NumberFormatException e){
 			GUI.showMessage("Du skal indtaste et tal");
