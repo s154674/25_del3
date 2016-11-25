@@ -20,7 +20,7 @@ public class GameLogic {
             // Opret Gameboard
             GameBoard gb = new GameBoard();
             // Spørg efter spillere
-            Player[] players = createPlayers();
+            Player[] players = GameBoard.createPlayers();
             // Put spillerne på gameboardet
             gb.setupPlayers(players);
 
@@ -74,17 +74,5 @@ public class GameLogic {
                 return players[i];
         }
         return null;
-    }
-    public static Player[] createPlayers(){
-        Color[] colors = {Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.RED, Color.YELLOW};
-        int amount = Input.getPlayers();
-        String[] names = Input.getPlayerNames(amount);
-        Player[] players = new Player[amount];
-
-        for (int i=0;i<amount;i++){
-            players[i]= new Player(names[i], new Account(30000));
-            FieldGenerator.createPlayer(colors[i],players[i]);
-        }
-        return players;
     }
 }
