@@ -1,7 +1,5 @@
 package test;
 
-import java.util.Arrays;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -60,7 +58,13 @@ public class TestLaborCamp {
 		int expectedArray[] = { 29800, 29700, 29600, 29500, 29400, 29300, 29200, 29100, 29000, 28900, 28800 };
 		actual = this.lander.getAccount().getBalance();
 
-		Assert.assertTrue(Arrays.asList(expectedArray).contains(actual));
+		boolean exists = false;
+		for (int i = 0; i < expectedArray.length; i++) {
+			if (expectedArray[i] == actual) {
+				exists = true;
+			}
+		}
+		Assert.assertTrue(exists);
 
 	}
 
@@ -68,7 +72,6 @@ public class TestLaborCamp {
 	public void testLandOnLaborCampTwoOwned() {
 		this.labourCamp1.setOwner(this.owner);
 		this.labourCamp2.setOwner(this.owner);
-
 		this.owner.addProperty(this.labourCamp1);
 		this.owner.addProperty(this.labourCamp2);
 
@@ -78,9 +81,16 @@ public class TestLaborCamp {
 
 		this.labourCamp1.landOnField(this.lander);
 
+		int expectedArray[] = { 29600, 29400, 29200, 29000, 28800, 28600, 28400, 28200, 28000, 27800, 27600 };
 		actual = this.lander.getAccount().getBalance();
-		expected = 30000;
-		Assert.assertSame(expected, actual);
+
+		boolean exists = false;
+		for (int i = 0; i < expectedArray.length; i++) {
+			if (expectedArray[i] == actual) {
+				exists = true;
+			}
+		}
+		Assert.assertTrue(exists);
 	}
 
 	@Test
