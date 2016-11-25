@@ -25,7 +25,7 @@ public class Cup {
 	public int getSum() {
 		return d1.getValue() + d2.getValue();
 	}
-
+/* Bruges i et matador spil 
 	public boolean isPair() {
 		return d1.getValue() == d2.getValue();
 	}
@@ -33,5 +33,5 @@ public class Cup {
 	public boolean isPair(int n) {
 		return d1.getValue() == d2.getValue() && d1.getValue() == n;
 	}
-
+*/
 }

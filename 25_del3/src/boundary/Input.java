@@ -7,7 +7,7 @@ public static int getPlayers(){
 	int antalSpillere;
 	while (true){
 		try {
-			antalSpillere = GUI.getUserInteger("Antal Spillere: ");
+			antalSpillere = GUI.getUserInteger("Antal Spillere: ",2,6);
 			return antalSpillere;
 		} catch (NumberFormatException e){
 			GUI.showMessage("Du skal indtaste et tal");
@@ -31,7 +31,8 @@ public static boolean getBuyChoice(int price){
 public static boolean getTaxChoice(){
 	return GUI.getUserLeftButtonPressed("Ønsker du at betale 4000 eller 10% af din formue?", "4000", "10%");
 }
-public static void startTurn(String player){ GUI.showMessage(player + "'s tur"); }
+public static void startTurn(String player){ 
+	GUI.showMessage(player + "'s tur"); }
 
 public static boolean winnerIsPlayAgain(String player){
 	return GUI.getUserLeftButtonPressed(player + " vandt! spil igen?", "Ja", "Nej");

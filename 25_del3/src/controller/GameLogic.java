@@ -1,11 +1,15 @@
 package controller;
 
+import boundary.FieldGenerator;
 import boundary.Input;
 import boundary.Output;
+import entity.Account;
 import entity.Cup;
 import entity.Dice;
 import entity.Player;
 import entity.fields.*;
+
+import java.awt.Color;
 import java.util.*;
 
 public class GameLogic {
@@ -16,7 +20,7 @@ public class GameLogic {
             // Opret Gameboard
             GameBoard gb = new GameBoard();
             // Spørg efter spillere
-            Player[] players = GameCreator.createPlayers();
+            Player[] players = GameBoard.createPlayers();
             // Put spillerne på gameboardet
             gb.setupPlayers(players);
 
