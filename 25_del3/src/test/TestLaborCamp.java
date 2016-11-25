@@ -13,7 +13,6 @@ import entity.fields.LaborCamp;
 import entity.fields.Ownable;
 
 public class TestLaborCamp {
-
 	private Player lander;
 	private Player owner;
 	private Ownable labourCamp1;

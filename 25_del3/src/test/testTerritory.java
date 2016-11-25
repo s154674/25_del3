@@ -77,6 +77,7 @@ public class testTerritory {
 		int actualOwner = this.owner.getAccount().getBalance();
 		int ownerExpect = 31000;
 		Assert.assertEquals(ownerExpect, actualOwner);
+
 	}
 
 }

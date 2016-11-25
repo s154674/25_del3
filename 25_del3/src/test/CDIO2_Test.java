@@ -8,7 +8,6 @@ import org.junit.Test;
 import entity.Account;
 
 public class CDIO2_Test {
-
 	Account account;
 
 	@Before

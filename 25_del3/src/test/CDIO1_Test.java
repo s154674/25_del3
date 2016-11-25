@@ -8,7 +8,6 @@ import org.junit.Test;
 import entity.Dice;
 
 public class CDIO1_Test {
-
 	// Tester om en terning slår noget den ikke skal kunne slå
 	@Test
 	public void testDiceLimit() {

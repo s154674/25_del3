@@ -11,6 +11,7 @@ import entity.fields.Field;
 import entity.fields.Refuge;
 
 public class TestRefuge {
+
 	private Player player;
 	private Field refuge500;
 	private Field refuge5000;

@@ -11,7 +11,6 @@ import entity.fields.Fleet;
 import entity.fields.Ownable;
 
 public class testFleet {
-
 	private Player lander;
 	private Player owner;
 	private Ownable fleet1;
