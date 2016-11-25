@@ -65,7 +65,6 @@ public class GameLogic {
             if (players[i].getBroke())
                 left-=1;
         }
-        System.out.println(left + " spillere tilbage");
         return (left==1);
     }
     private static Player findWinner(Player[] players){
