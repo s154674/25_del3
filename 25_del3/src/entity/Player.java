@@ -51,7 +51,16 @@ public class Player {
 		this.broke = broke;
 	}
 
-	public void pay(Player player, int amount){
+	public void pay(int amount){
+		if (getBalance()>=amount){
+			account.withdraw(amount);
+		} else {
+			account.withdraw(account.getBalance());
+			bankrupt();
+			Output.bankrupt(this.toString());
+		}
+	}
+	public void pay(int amount, Player player){
 		if (getBalance()>=amount){
 			account.withdraw(amount);
 			player.getAccount().deposit(amount);
@@ -75,12 +84,14 @@ public class Player {
 			Output.noBuy(this.toString());
 		}
 	}
+
 	private void bankrupt(){
 		broke = true;
 		for (Ownable property: properties) {
 			property.removeOwner();
 		}
 		properties = null;
+
 	}
 
 	public void addProperty(Ownable property) {

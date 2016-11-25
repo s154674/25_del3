@@ -52,14 +52,11 @@ public class GameBoard {
         }
     }
     public Field movePlayer(Player player, int n){
-        System.out.println("Start: "+map.get(player));
         Output.removeCar((40), player.toString());
         Output.removeCar((map.get(player)), player.toString());
 
         map.put(player, ((map.get(player) + n - 1) % fields.length)+1);
-        System.out.println("Slut: "+map.get(player));
         Output.setCar(map.get(player), player.toString());
-        System.out.println("-");
         return fields[map.get(player)-1];
     }
 }

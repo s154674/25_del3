@@ -32,8 +32,9 @@ public static boolean getTaxChoice(){
 	return GUI.getUserLeftButtonPressed("Ønsker du at betale 4000 eller 10% af din formue?", "4000", "10%");
 }
 public static void startTurn(String player){ GUI.showMessage(player + "'s tur"); }
-public static boolean getPlayAgain(){
-	return GUI.getUserLeftButtonPressed("Ønsker i at spille igen?", "Ja", "Nej");
+
+public static boolean winnerIsPlayAgain(String player){
+	return GUI.getUserLeftButtonPressed(player + " vandt! spil igen?", "Ja", "Nej");
 }
 
 }

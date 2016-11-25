@@ -14,6 +14,7 @@ public class Output {
     public static void payOwner(String lander, String owner, int price) {
         GUI.showMessage(lander + " betaler " + owner + " " + price);
     }
+    public static void bankrupt(String player){GUI.showMessage(player + " er gået bankerot.");}
 
     public static void ownProperty(String lander) {
         GUI.showMessage(lander + " landede på sit eget felt");
@@ -21,6 +22,9 @@ public class Output {
 
     public static void payOwnerAndBankrupt(String lander, String owner, int left) {
         GUI.showMessage(lander + " er gået bankerot. " + owner + " får de " + left + " som " + lander + " havde.");
+    }
+    public static void removeOwner(int fieldNumber){
+        GUI.removeOwner(fieldNumber);
     }
 
     public static void landOnRefuge(String lander, int bonus) {
@@ -49,5 +53,9 @@ public class Output {
 
     public static void setOwner(int fieldNumber, String player) {
         GUI.setOwner(fieldNumber, player);
+    }
+
+    public static void closeGui() {
+        GUI.close();
     }
 }

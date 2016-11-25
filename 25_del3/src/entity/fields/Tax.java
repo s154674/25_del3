@@ -22,16 +22,16 @@ public class Tax extends Field {
 		} else if (taxRate == 0) {
 			boolean ans = Input.getTaxChoice();
 			if (ans==true) {
-				lander.getAccount().withdraw(fee);
 				Output.landOnTax(lander.toString(), fee);
+				lander.pay(fee);
 			} else {
 				int percent, i, sum = lander.getAccount().getBalance();
 				for (i=0;i<lander.getProperties().size();i++){
 					sum+=lander.getProperties().get(i).getPrice();
 				}
 				percent = (int) sum/10;
-				lander.getAccount().withdraw(percent);
 				Output.landOnTax(lander.toString(), percent);
+				lander.pay(percent);
 			}
 		}
 	}

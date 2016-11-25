@@ -17,6 +17,7 @@ public abstract class Ownable extends Field {
 	}
 	public void removeOwner(){
 		owner = null;
+		Output.removeOwner(getNumber());
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public abstract class Ownable extends Field {
 			Output.ownProperty(lander.toString());
 		} else {
 			int rent = this.getRent();
-			lander.pay(owner, rent);
+			lander.pay(rent, owner);
 		}
 	}
 
